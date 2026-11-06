@@ -54,3 +54,9 @@ zig cc --target=x86-windows-gnu -shared -O2 -o d3d9.dll d3d9proxy_final.c d3d9.d
 - `d3d9.dll` が `Direct3DCreate9` 呼び出し時に`Pal.dll` のインポートテーブルから `USER32!PostThreadMessageA` を探してフックする
 - スレッドID 0 へのPostは「成功」として返す
 - スレッドID 0 が実在しないので強制的にゲーム側のリトライが打ち切られる
+
+## 注意
+
+- このパッチはCRYSTALiAおよびASUSとは一切関係ありません。問い合わせなどはされないようにお願いいたします。
+- このパッチの使用によるゲーム本体やPCへの一切の影響については、全て自己責任でご利用ください。
+- Releaseのdllにセキュリティ上の不安がある場合は自前でのビルドを推奨いたします。
