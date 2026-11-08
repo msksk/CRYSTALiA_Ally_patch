@@ -1,18 +1,20 @@
-# CRYSTALiA作品向け ASUS ROG Ally用パッチ
+# 【非公式】CRYSTALiA作品向け ASUS ROG Ally用パッチ
 
 ## 概要
 
-- ASUS Rog AllyでCRYSTALiAのPCゲームを動作するようにする修正パッチです。
+- ASUS Rog AllyでCRYSTALiAのPCゲームを動作するようにする非公式の修正パッチです。
 - 手元では以下の作品で動作のを確認しています。
     - 絆きらめく恋いろは
     - 紅月ゆれる恋あかり
 - 同じエンジンを使用している他の作品でも有効と思われますが未確認です。
 
-## ビルド
+## 使用方法
 
-ビルドに成功するとoutフォルダー内に `d3d9.dll` が作成されるので、dllをコピーしてexeなどがあるフォルダーに設置してください。
+### ビルド
 
-### 付属スクリプト (build.ps1)
+ビルドに成功するとoutフォルダー内に `d3d9.dll` が作成されます。
+
+#### 付属スクリプト (build.ps1)
 
 ```powershell
 .\build.ps1
@@ -21,13 +23,13 @@
 powershell -ExecutionPolicy Bypass -File .\build.ps1
 ```
 
-### Docker
+#### Docker
 
 ```powershell
 docker build --output "type=local,dest=./out" .
 ```
 
-### Zig ネイティブビルド
+#### Zig
 
 ※Windows 版 Zig 0.17.1 が必要です
 
@@ -35,7 +37,11 @@ docker build --output "type=local,dest=./out" .
 zig cc --target=x86-windows-gnu -shared -O2 -o d3d9.dll d3d9proxy_final.c d3d9.def
 ```
 
-## 元に戻す
+### インストール
+
+`d3d9.dll`をexeなどがあるフォルダーに設置してください。
+
+### アンインストール
 
 設置した `d3d9.dll` を削除してください。
 
